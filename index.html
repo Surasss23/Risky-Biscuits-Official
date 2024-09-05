@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risky Biscuit Official</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #ADD8E6; /* Light blue color */
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 20px;
+            animation: popIn 1s ease-in-out;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1); /* Slightly transparent white */
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin-bottom: 30px;
+            box-sizing: border-box;
+        }
+
+        label {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            display: block;
+            margin-bottom: 8px;
+            text-align: left;
+        }
+
+        input[type="number"] {
+            font-size: 1.5rem;
+            padding: 10px;
+            border-radius: 8px;
+            border: 2px solid #fff; /* White border */
+            outline: none;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-bottom: 20px;
+            box-sizing: border-box;
+        }
+
+        input[type="number"]:focus {
+            border-color: #87CEFA; /* Light blue */
+            box-shadow: 0 0 10px rgba(135, 206, 250, 0.5);
+        }
+
+        .last-win-label {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+
+        .checkbox-container {
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .checkbox-label {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+            margin-right: 15px;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        input[type="radio"] {
+            margin-right: 10px;
+            transform: scale(1.3);
+        }
+
+        input[type="radio"]:checked + .checkbox-label {
+            color: #87CEFA; /* Light blue */
+            font-weight: bold;
+        }
+
+        .result-button {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            background-color: #1E90FF; /* Blue color */
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            margin-top: 20px;
+            box-sizing: border-box;
+        }
+
+        .result-button:hover {
+            background-color: #00BFFF; /* Brighter blue */
+            transform: scale(1.05);
+        }
+
+        .result-container {
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: white;
+            display: none;
+            text-align: center;
+            animation: fadeInResult 1s ease;
+        }
+
+        .big-result {
+            background-color: #32CD32; /* Green */
+            box-shadow: 0 8px 16px rgba(0, 255, 0, 0.4);
+        }
+
+        .small-result {
+            background-color: #FF4500; /* Red */
+            box-shadow: 0 8px 16px rgba(255, 69, 0, 0.4);
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            max-width: 400px;
+            margin-top: 20px;
+        }
+
+        .btn {
+            font-size: 1rem;
+            font-weight: bold;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            flex: 1;
+            margin: 0 5px;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+
+        .telegram-btn {
+            background-color: #1E90FF; /* Main blue color */
+        }
+
+        .instagram-btn {
+            background-color: #E4405F; /* Instagram color */
+        }
+
+        .register-btn {
+            background-color: #FF4500; /* Red */
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInResult {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes popIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Risky Biscuit Official</h1>
+
+    <div class="container">
+        <label for="period-number">Enter last four digits of period number:</label>
+        <input type="number" id="period-number" min="0000" max="9999" required>
+
+        <div class="last-win-label">
+            What's last win?
+        </div>
+
+        <div class="checkbox-container">
+            <input type="radio" id="big" name="choice" value="big">
+            <label class="checkbox-label" for="big">BIG</label>
+
+            <input type="radio" id="small" name="choice" value="small">
+            <label class="checkbox-label" for="small">SMALL</label>
+        </div>
+
+        <button class="result-button" onclick="calculateResult()">Check Result</button>
+
+        <div id="result" class="result-container"></div>
+    </div>
+
+    <div class="button-container">
+        <a href="https://t.me/+jF0Rj2Geqcg5NzQ1" target="_blank" class="btn telegram-btn">Telegram</a>
+        <a href="https://www.instagram.com/riskybiscuitsofficial?igsh=aGlpOGtlcWRyaXA2" target="_blank" class="btn instagram-btn">Instagram</a>
+        <a href="https://91club.bet/#/register?invitationCode=1446833967" target="_blank" class="btn register-btn">Register</a>
+    </div>
+
+    <script>
+        function calculateResult() {
+            const periodNumber = document.getElementById('period-number').value;
+            const selectedChoice = document.querySelector('input[name="choice"]:checked');
+
+            if (periodNumber.length !== 4 || !selectedChoice) {
+                alert('Please enter a valid 4-digit period number and select an option.');
+                return;
+            }
+
+            const lastTwoDigits = periodNumber.slice(-2);
+            const sumLastTwoDigits = parseInt(lastTwoDigits[0]) + parseInt(lastTwoDigits[1]);
+            let periodResult = '';
+
+            // Determine 'small' or 'big' based on sumLastTwoDigits
+            if (sumLastTwoDigits >= 1 && sumLastTwoDigits <= 5) {
+                periodResult = 'small';
+            } else if (sumLastTwoDigits >= 6 && sumLastTwoDigits <= 10) {
+                periodResult = 'big';
+            } else if (sumLastTwoDigits >= 11 && sumLastTwoDigits <= 15) {
+                periodResult = 'small';
+            } else if (sumLastTwoDigits >= 16 && sumLastTwoDigits <= 20) {
+                periodResult = 'big';
+            }
+
+            const resultBox = document.getElementById('result');
+            resultBox.style.display = 'block';
+
+            // Determine result based on user choice and period result
+            if ((selectedChoice.value === 'big' && periodResult === 'big') ||
+                (selectedChoice.value === 'small' && periodResult === 'small')) {
+                resultBox.textContent = "BIG";
+                resultBox.className = "result-container big-result";
+            } else {
+                resultBox.textContent = "SMALL";
+                resultBox.className = "result-container small-result";
+            }
+        }
+    </script>
+</body>
+</html>
